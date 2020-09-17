@@ -1,1 +1,1 @@
-python %ProgramFiles%\autosub-master\addsub.py %*
+python "%ProgramFiles%\autosub-master\addsub.py" %*
