@@ -4,7 +4,7 @@ Defines autosub's main functionality.
 
 #!/usr/bin/env python
 
-
+from __future__ import absolute_import, print_function, unicode_literals
 
 import argparse
 import audioop
@@ -330,14 +330,14 @@ def validate(args):
         )
         return False
 
-    if args.src_language not in list(LANGUAGE_CODES.keys()):
+    if args.src_language not in LANGUAGE_CODES.keys():
         print(
             "Source language not supported. "
             "Run with --list-languages to see all supported languages."
         )
         return False
 
-    if args.dst_language not in list(LANGUAGE_CODES.keys()):
+    if args.dst_language not in LANGUAGE_CODES.keys():
         print(
             "Destination language not supported. "
             "Run with --list-languages to see all supported languages."
@@ -403,7 +403,7 @@ def main():
             return 0
 
         if os.path.isfile(args.output):
-            overwrite = input('File "' + args.output + '" already exists. Overwrite? [y/n] ').lower()
+            overwrite = raw_input('File "' + args.output + '" already exists. Overwrite? [y/n] ').lower()
             if not overwrite == 'y':
                 print("Skipping...")
                 return 0
