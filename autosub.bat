@@ -1,0 +1,1 @@
+python %ProgramFiles%\autosub-master\autosub-helper.py %*
