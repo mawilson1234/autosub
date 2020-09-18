@@ -2,14 +2,20 @@
 
 # Requirements:
 ## Programs:
-Python 3 
+Python >=3.6
+
 ffmpeg
 
-## Python packages (install using `pip install [packagename]` from a terminal/command prompt):
+## Python packages
+(install using `pip install [packagename]` from a terminal/command prompt):
 google-api-python-client
+
 requests
+
 pysrt
+
 progressbar2
+
 six
 
 # Installation:
