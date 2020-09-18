@@ -29,11 +29,13 @@ parser.add_argument('--list-languages', help="List all available source/destinat
 
 args = parser.parse_args()
 
-if not sys.platform in ['darwin', 'win32']:
+if sys.platform == 'darwin':
+    app_path = '/Applications/autosub/autosub'
+elif sys.platform == 'win32':
+    app_path = 'C:\\Users\\mawilson\\OneDrive\\Documents\\Dropbox\\autosub\\autosub'
+else:
     print('Only Mac and Windows are currently supported. Exiting.')
     sys.exit(1)
-
-app_path = '/Applications/autosub-master/autosub' if sys.platform == 'darwin' else '%ProgramFiles%/autosub-master/autosub' if sys.platform == 'win32'
 
 if not (args.list_formats or args.list_languages):
     if not args.source_path:

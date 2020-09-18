@@ -1,1 +1,3 @@
-python "%ProgramFiles%\autosub-master\autosub-helper.py" %*
+@echo OFF
+
+python "%ProgramFiles%\autosub\autosub-helper.py" %*
