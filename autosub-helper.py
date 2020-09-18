@@ -32,7 +32,7 @@ args = parser.parse_args()
 if sys.platform == 'darwin':
     app_path = '/Applications/autosub/autosub'
 elif sys.platform == 'win32':
-    app_path = 'C:\\Users\\mawilson\\OneDrive\\Documents\\Dropbox\\autosub\\autosub'
+    app_path = '%ProgramFiles%/autosub'
 else:
     print('Only Mac and Windows are currently supported. Exiting.')
     sys.exit(1)
