@@ -28,13 +28,13 @@ To add `%ProgramFiles%\autosub` to your `PATH`, right click on 'This PC' on your
 If you are on Windows, you can safely delete the `.sh` files. These are only used on Mac.
 
 ## Mac:
-Install `autosub` + `addsub` by putting the autosub root folder in your Applications folder, and setting up the bash script aliases.
+Install `autosub` + `addsub` by putting the autosub root folder in your Applications folder, and setting up the bash script aliases. Here's how to do this step by step.
 
-First, create a folder named `autosub` in your Applications directory, and move the files from this repo there. Next, move the bash files to `/usr/local/bin/`. To do this, open a new Finder window, press `Cmd+Shift+G`, and enter `/usr/local/bin/` in the pop-up that appears. Select the `.sh` files and press `Cmd+C`. Then click inside the `/usr/local/bin` window and press `Cmd+V`. (Do not just drag the files there, as this will create a shortcut and not actually copy them!) (You can now the delete them from the `autosub` folder if you want.)
+First, create a folder named `autosub` in your Applications directory, and move the files inside the ZIP file you download from this repo there. Next, move the bash files to `/usr/local/bin/`. To do this, open a new Finder window, press `Cmd+Shift+G`, and enter `/usr/local/bin/` in the pop-up that appears. Select the `.sh` files and press `Cmd+C`. Then click inside the `/usr/local/bin/` window and press `Cmd+V`. (Do not just drag the files there, as this will create a shortcut and not actually copy them!) (You can now the delete them from the `autosub` folder if you want.)
 
-Open a terminal window and enter `cd /usr/local/bin/`. Next, make the bash scripts executable. In the same terminal window, type `sudo chmod +x autosub.sh`, and then enter your password (no text will display while you enter your password). Then, do the same for `addsub.sh`: `sudo chmod +x addsub.sh` (you should not need to enter your password again).
+Open a terminal window and enter `cd /usr/local/bin/`. Next, make the bash scripts executable. To do this, in the same terminal window, type `sudo chmod +x autosub.sh` and press enter. Then enter your password (no text will display while you enter your password, but it is working), and press enter. Then, do the same for `addsub.sh`: `sudo chmod +x addsub.sh` (you should not need to enter your password again).
 
-Next, add aliases for the scripts. To do this, type `ln -s /usr/local/bin/autosub.sh /usr/local/bin/autosub` and press enter. Then, do the same for `addsub.sh` (`ln -s /usr/local/bin/addsub.sh /usr/local/bin/addsub` and press enter). You're done!
+Next, add aliases for the scripts. To do this, in the terminal window, type `ln -s /usr/local/bin/autosub.sh /usr/local/bin/autosub` and press enter. Then, do the same for `addsub.sh` (`ln -s /usr/local/bin/addsub.sh /usr/local/bin/addsub` and press enter). You're done!
 
 If you are on Mac, you can safely delete the `.bat` files. These are only used on Windows.
 
