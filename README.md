@@ -71,7 +71,7 @@ If you are on Mac, you can safely delete the `.bat` files. These are only used o
 An srt file containing the recognized speech. The default will put this in the same directory as the video with the same file name but an `.srt` extension. This can be edited in any text editor to fix formatting (punctuation and capitalization) and word recognition errors.
 
 ## `addsub`
-A video file with hard-embedded or soft-embedded subtitles, depending on what options you set. The default hard-embeds the subtitles, and puts the resulting video(s) in the same directory as the original video(s), with the name `[original_file_name]-subbed.mp4`.
+A video file with hard-embedded or soft-embedded subtitles, depending on what options you set. The default hard-embeds the subtitles, and puts the resulting video(s) in the same directory as the original video(s), with the name `[original_file_name]-subbed.mp4`. Note that `addsub` currently only works with `srt` format, and not `json` format (the other format supported by `autosub`).
 
 # Note
 If you are soft-embedding subtitles, you may need to select the subtitle track manually in your video player; in particular, VLC requires this, and others may as well.
