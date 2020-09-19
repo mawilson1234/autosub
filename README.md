@@ -1,8 +1,8 @@
 # Requirements:
 ## Programs:
-Python >=3.6
+[Python &#x2265;3.6](https://python.org)
 
-ffmpeg
+[ffmpeg](https://ffmpeg.org)
 
 ## Python packages
 (install using `pip install [packagename]` from a terminal/command prompt):
