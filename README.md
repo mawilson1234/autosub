@@ -1,5 +1,3 @@
-(In progress)
-
 # Requirements:
 ## Programs:
 Python >=3.6
