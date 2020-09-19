@@ -30,7 +30,7 @@ If you are on Windows, you can safely delete the `.sh` files. These are only use
 ## Mac:
 Install `autosub` + `addsub` by putting the autosub root folder in your Applications folder, and setting up the bash script aliases.
 
-First, create a folder named `autosub` in your Applications directory, and move the files there. Next, move the bash files to `/usr/local/bin/`. To do this, open a new Finder window, press `Cmd+Shift+G`, and enter `/usr/local/bin/` in the pop-up that appears. Select the `.sh` files and press `Cmd+C`. Then click inside the `/usr/local/bin` window and press `Cmd+V`. (Do not just drag the files there, as this will create a shortcut and not actually copy them!) (You can now the delete them from the `autosub` folder if you want.)
+First, create a folder named `autosub` in your Applications directory, and move the files from this repo there. Next, move the bash files to `/usr/local/bin/`. To do this, open a new Finder window, press `Cmd+Shift+G`, and enter `/usr/local/bin/` in the pop-up that appears. Select the `.sh` files and press `Cmd+C`. Then click inside the `/usr/local/bin` window and press `Cmd+V`. (Do not just drag the files there, as this will create a shortcut and not actually copy them!) (You can now the delete them from the `autosub` folder if you want.)
 
 Open a terminal window and enter `cd /usr/local/bin/`. Next, make the bash scripts executable. In the same terminal window, type `sudo chmod +x autosub.sh`, and then enter your password (no text will display while you enter your password). Then, do the same for `addsub.sh`: `sudo chmod +x addsub.sh` (you should not need to enter your password again).
 
