@@ -53,7 +53,7 @@ If you are on Mac, you can safely delete the `.bat` files. These are only used o
 - `--list-languages`: show all available source/destination languages.
 
 ## `addsub`
-`addsub [-v/--video_file] [-o/--output_file] [-s/--subtitle_file] [-r/--rename] [-c/--color] [-si/--size] [-b/--border_style] [-af/--additional_formatting]`
+`addsub [-v/--video_file] [-o/--output_file] [-s/--subtitle_file] [-r/--rename] [-c/--color] [-si/--size] [-b/--border_style] [-af/--additional_formatting] [-se/--soft-embed] [-comp/--compression]`
 
 - `-v/--video_file`: the relative or absolute path(s) to the video file(s). Default is all files in the current directory than end in `.mov`.
 - `-o/--output_file`: where the save the output file(s) with the hard-coded subtitles. Default are the video file names + `-subbed` in `.mp4` format.
