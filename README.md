@@ -19,16 +19,16 @@ ffmpeg
 
 # Installation:
 ## Windows:
-Install autosub + addsub by putting the autosub root folder in `%ProgramFiles%`, and adding `%ProgramFiles%\autosub` to your `PATH`.
+Install `autosub` + `addsub` by putting the autosub root folder in `%ProgramFiles%`, and adding `%ProgramFiles%\autosub` to your `PATH`.
 
-To find the location of your `%ProgramFiles%` folder, open a command prompt and run `echo %ProgramFiles%`. Then, put the root autosub folder in the folder that was listed.
+To find the location of your `%ProgramFiles%` folder, open a command prompt and run `echo %ProgramFiles%`. Then, create a folder named `autosub` there (you will need to provide administrator permissions), and files from this repo there.
 
 To add `%ProgramFiles%\autosub` to your `PATH`, right click on 'This PC' on your desktop, and select 'Properties'. On the left, select 'Advanced System Settings', and then 'Environment Variables'. On the lower panel, 'System variables', scroll down and find the entry for `Path` or `PATH`. Select that entry, and click 'Edit...'. On the right, click 'New', and type `%ProgramFiles%\autosub` (note the backslash!). Then click 'OK', 'OK', and 'OK' to exit the settings windows. You're done!
 
 If you are on Windows, you can safely delete the `.sh` files. These are only used on Mac.
 
 ## Mac:
-Install autosub + addsub by putting the autosub root folder in your Applications folder, and setting up the bash script aliases.
+Install `autosub` + `addsub` by putting the autosub root folder in your Applications folder, and setting up the bash script aliases.
 
 First, create a folder named `autosub` in your Applications directory, and move the files there. Next, move the bash files to `/usr/local/bin/`. To do this, open a new Finder window, press `Cmd+Shift+G`, and enter `/usr/local/bin/` in the pop-up that appears. Select the `.sh` files and press `Cmd+C`. Then click inside the `/usr/local/bin` window and press `Cmd+V`. (Do not just drag the files there, as this will create a shortcut and not actually copy them!) (You can now the delete them from the `autosub` folder if you want.)
 
