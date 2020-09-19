@@ -75,6 +75,6 @@ for vf, sf, of in tuple(zip(args.video_file, args.subtitle_file, args.output_fil
 	if not args.soft_embed:
 		subprocess.call(f'ffmpeg -hide_banner -loglevel warning -i "{vf}" -vf "subtitles=\'{sf}\':force_style=\'Fontsize={args.size},PrimaryColour=&H{args.color}&,BorderStyle={args.border_style}{args.additional_formatting}\'" -c:v libx265 -x265-params log-level=error:crf={args.compression} -c:a copy "{of}"', cwd = os.getcwd(), shell = True)
 	else:
-		subprocess.call(f'ffmpeg -hide_banner -loglevel warning -i "{vf}" -i "{sf}" -c:v libx265 -x265-params log-level=error:crf={args.compression} -c:a copy -c:s mov_text -disposition:s:0 default "{of}"')
+		subprocess.call(f'ffmpeg -hide_banner -loglevel warning -i "{vf}" -i "{sf}" -c:v libx265 -x265-params log-level=error:crf={args.compression} -c:a copy -c:s mov_text -disposition:s:0 default "{of}"', cwd = os.getcwd(), shell = True)
 
 print('Done!')

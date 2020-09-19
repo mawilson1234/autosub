@@ -1,3 +1,3 @@
 #!/bin/sh
 
-python /Applications/autosub-master/autosub-helper.py "$@"
+python /Applications/autosub/autosub-helper.py "$@"
