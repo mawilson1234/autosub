@@ -29,6 +29,14 @@ parser.add_argument('--list-languages', help="List all available source/destinat
 
 args = parser.parse_args()
 
+if sys.platform == 'darwin':
+    app_path = '/Applications/autosub/autosub'
+elif sys.platform == 'win32':
+    app_path = '%ProgramFiles%/autosub/autosub'
+else:
+    print('Only Mac and Windows are currently supported. Exiting.')
+    sys.exit(1)
+
 if not (args.list_formats or args.list_languages):
     if not args.source_path:
         args.source_path = '*.mov'
@@ -50,11 +58,11 @@ if not (args.list_formats or args.list_languages):
         keystr = ' -K ' + str(args.api_key)
 
     for source, output in tuple(zip(args.source_path, args.output)):
-        subprocess.call('python2 /Applications/autosub-master/autosub "' + str(source) + '" -C ' + str(args.concurrency) + ' -o "' + str(output) + '" -F ' + str(args.format) + ' -S ' + str(args.src_language) + ' -D ' + str(args.dst_language) + str(keystr), cwd = os.getcwd(), shell = True)
+        subprocess.call('python "' + app_path + '" "' + str(source) + '" -C ' + str(args.concurrency) + ' -o "' + str(output) + '" -F ' + str(args.format) + ' -S ' + str(args.src_language) + ' -D ' + str(args.dst_language) + str(keystr), cwd = os.getcwd(), shell = True)
 
 elif args.list_formats:
-    subprocess.Popen('python2 /Applications/autosub-master/autosub --list-formats', cwd = os.getcwd(), shell = True).communicate()
+    subprocess.Popen('python "' + app_path + '" --list-formats', cwd = os.getcwd(), shell = True).communicate()
 
 elif args.list_languages:
-    subprocess.Popen('python2 /Applications/autosub-master/autosub --list-languages', cwd = os.getcwd(), shell = True).communicate()
+    subprocess.Popen('python "' + app_path + '" --list-languages', cwd = os.getcwd(), shell = True).communicate()
 
