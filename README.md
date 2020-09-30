@@ -42,7 +42,7 @@ If you are on Mac, you can safely delete the `.bat` files. These are only used o
 ## `autosub`
 `autosub [source_path] [-C/--concurrency] [-o/--output] [-F/--format] [-S/--src_language] [-D/--dst-language] [-K/--api_key] [--list-formats] [--list-languages]`
 
-- `source_path`: the (relative or absolute) path to the video file you want to generate subtitles for. The default generates subtitles for every file with a `.mov` extension in the current directory. Unix-style wildcards are supported.
+- `source_path`: the (relative or absolute) path to the video file you want to generate subtitles for. The default generates subtitles for every file with a `.mov` or `.mp4` extension in the current directory. Unix-style wildcards are supported.
 - `-C/--concurrency`: the number of concurrent API requests to make.
 - `-o/--output`: the name of the output subtitle file(s). The default saves them in the same directory as the video and with the same name.
 - `-F/--format`: the subtitle format. Default is `.srt`.
@@ -55,7 +55,7 @@ If you are on Mac, you can safely delete the `.bat` files. These are only used o
 ## `addsub`
 `addsub [-v/--video_file] [-o/--output_file] [-s/--subtitle_file] [-r/--rename] [-c/--color] [-si/--size] [-b/--border_style] [-af/--additional_formatting] [-se/--soft-embed] [-comp/--compression]`
 
-- `-v/--video_file`: the relative or absolute path(s) to the video file(s). Default is all files in the current directory than end in `.mov`.
+- `-v/--video_file`: the relative or absolute path(s) to the video file(s). Default is all files in the current directory than end in `.mov` or `.mp4`.
 - `-o/--output_file`: where the save the output file(s) with the hard-coded subtitles. Default are the video file names + `-subbed` in `.mp4` format.
 - `-s/--subtitle_file`: the relative or absolute path(s) to the srt file(s). Default assumes that they have the same name as the video file(s) but with an `.srt` extension.
 - `-r/--rename`: Whether to automatically rename files to avoid overwriting. The default prompts for whether to overwrite for each output file name that already exists.
@@ -63,7 +63,7 @@ If you are on Mac, you can safely delete the `.bat` files. These are only used o
 - `-si/--size`: the font size to use for the subtitles in pt. Default is 24.
 - `-b/--border_style`: the border style to use for the subtitles. Default is 3 (opaque box). 1 uses an outline + drop shadow.
 - `-af/--additional_formatting`: Additional formatting to use for the subtitles, specified using SubStation Alpha style fields. Default is empty.
-- `-sc/--soft_embed`: Set this to soft-embed the subtitles instead of hard-embedding them, so that you can choose whether to display them and the formatting in the video playback software.
+- `-se/--soft_embed`: Set this to soft-embed the subtitles instead of hard-embedding them, so that you can choose whether to display them and the formatting in the video playback software.
 - `-comp/--compression`: The compression factor to use for the output video. Default is 22. Lower numbers mean less compression/higher quality.
 
 # Output

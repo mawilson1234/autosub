@@ -39,9 +39,9 @@ else:
 
 if not (args.list_formats or args.list_languages):
     if not args.source_path:
-        args.source_path = '*.mov'
-    
-    args.source_path = glob.glob(args.source_path)
+        args.source_path = glob.glob('*.mov') + glob.glob('*.mp4')
+    else:    
+        args.source_path = glob.glob(args.source_path)
 
     if not args.output:
         args.output = [file[:-4] + '.srt' for file in args.source_path]
