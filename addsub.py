@@ -3,7 +3,7 @@ import argparse, subprocess, os, sys, glob, re
 parser = argparse.ArgumentParser()
 
 parser.add_argument('-v', '--video_file', nargs = '?', 
-	help = 'The relative path(s) to the video file(s). Default is all files in the current directory that end in .mov.')
+	help = 'The relative path(s) to the video file(s). Default is all files in the current directory that end in .mov or .mp4.')
 parser.add_argument('-o', '--output_file', nargs = '?', default = '',
 	help = 'Where to save the file(s) with the hard-coded subtitles. Default are the video file names + "-subbed" in mp4 format.')
 parser.add_argument('-s', '--subtitle_file', nargs = '?', default = '', 
@@ -26,7 +26,7 @@ parser.add_argument('-comp', '--compression', default = '22',
 args = parser.parse_args()
 
 if not args.video_file:
-	args.video_file = glob.glob('*.mov')
+	args.video_file = glob.glob('*.mov') + glob.glob('*.mp4')
 else:	
 	args.video_file = glob.glob(args.video_file)
 

@@ -6,7 +6,7 @@ DEFAULT_SRC_LANGUAGE = 'en'
 DEFAULT_DST_LANGUAGE = 'en'
 
 parser = argparse.ArgumentParser()
-parser.add_argument('source_path', default = '', help="Path to the video or audio file to subtitle",
+parser.add_argument('source_path', default = '', help="Path to the video or audio file to subtitle. Default is all files in the current directory that end in .mov or .mp4.",
                         nargs='?')
 parser.add_argument('-C', '--concurrency', help="Number of concurrent API requests to make",
                         type=int, default=DEFAULT_CONCURRENCY)
