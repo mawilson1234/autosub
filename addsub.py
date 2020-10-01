@@ -79,11 +79,33 @@ for vf, sf, of in tuple(zip(args.video_file, args.subtitle_file, args.output_fil
 			of = f'{of[:(-5-len(str(counter - 1)))]}-{counter}{of[-4:]}'
 			counter += 1
 
+	# Convert sbv to srt to add them
+	if os.path.splitext(sf)[1] == '.sbv':
+		from captionstransformer.sbv import Reader
+		from captionstransformer.srt import Writer
+
+		with open(sf) as r:
+			reader = Reader(r)
+
+			with open(f'{os.path.splitext(sf)[0]}.srt', 'w') as w:
+				writer = Writer(w)
+				writer.set_captions(reader.read())
+				writer.write()
+				writer.close()
+
 	print(f'Adding subtitles to {vf}...')
 
 	if not args.soft_embed:
 		subprocess.call(f'ffmpeg -hide_banner -loglevel warning -i "{vf}" -vf "subtitles=\'{sf}\':force_style=\'Fontsize={args.size},PrimaryColour=&H{args.color}&,BorderStyle={args.border_style}{args.additional_formatting}\'" -c:v {codec_string} -c:a copy "{of}"', cwd = os.getcwd(), shell = True)
 	else:
 		subprocess.call(f'ffmpeg -hide_banner -loglevel warning -i "{vf}" -i "{sf}" -c:v {codec_string} -c:a copy -c:s mov_text -disposition:s:0 default "{of}"', cwd = os.getcwd(), shell = True)
+
+	# If the subtitle started off as sbv, try to delete the temporarily needed srt file
+	# This isn't hugely important, so just pass if it fails
+	if os.path.splitext(sf)[1] == '.sbv':
+		try:
+			os.remove(f'{os.path.splitext(sf)[0]}.srt')
+		except:
+			pass
 
 print('Done!')
