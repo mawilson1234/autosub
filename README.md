@@ -64,6 +64,7 @@ If you are on Mac, you can safely delete the `.bat` files. These are only used o
 - `-b/--border_style`: the border style to use for the subtitles. Default is 3 (opaque box). 1 uses an outline + drop shadow.
 - `-af/--additional_formatting`: Additional formatting to use for the subtitles, specified using SubStation Alpha style fields. Default is empty.
 - `-se/--soft_embed`: Set this to soft-embed the subtitles instead of hard-embedding them, so that you can choose whether to display them and the formatting in the video playback software.
+- `-vc/--video_codec`: Which video codec to use. Default is `libx264`. `libx265` is also supported. No other codecs are currently supported.
 - `-comp/--compression`: The compression factor to use for the output video. Default is 22. Lower numbers mean less compression/higher quality.
 
 # Output

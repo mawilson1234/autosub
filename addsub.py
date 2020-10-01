@@ -20,6 +20,8 @@ parser.add_argument('-af', '--additional_formatting', default = '',
 	help = 'Additional formatting to use for the subtitles, specified using SubStation Alpha style fields. Default is empty.')
 parser.add_argument('-se', '--soft_embed', default = False, action = 'store_true',
 	help = 'Set this if you want to soft-embed the subtitles instead (in which case rendering options can be set by the video playback software).')
+parser.add_argument('-vc', '--video_codec', default = 'libx264',
+	help = 'Set this to change the video codec. Default is libx264. The other valid option is libx265.')
 parser.add_argument('-comp', '--compression', default = '22',
 	help = 'Set this to change the compression ratio for the output video. The default is 22. Lower numbers mean less compression.')
 
@@ -33,7 +35,7 @@ else:
 if not args.subtitle_file:
 	args.subtitle_file = [f'{file[:-4]}.srt' for file in args.video_file]
 else:
-	args.subtitle_file = glob.glob(args.video_file)
+	args.subtitle_file = glob.glob(args.subtitle_file)
 
 if not args.output_file:
 	args.output_file = [f'{file[:-4]}-subbed.mp4' for file in args.video_file]
@@ -46,6 +48,13 @@ if args.additional_formatting:
 if not len(args.video_file) == len(args.subtitle_file) == len(args.output_file):
 	print('Error: number of files do not match. Exiting...')
 	sys.exit(1)
+
+if args.video_codec == 'libx264':
+	codec_string = f'libx264 -crf {args.compression}'
+elif args.video_codec == 'libx265':
+	codec_string = f'libx265 -x265-params log-level=error:crf={args.compression}'
+else:
+	print('Error: addsub only supports libx264 and libx265 codecs. Choose a valid codec and rerun.')
 
 for vf, sf, of in tuple(zip(args.video_file, args.subtitle_file, args.output_file)):
 	if not os.path.isfile(vf) or not os.path.isfile(sf):
@@ -73,8 +82,8 @@ for vf, sf, of in tuple(zip(args.video_file, args.subtitle_file, args.output_fil
 	print(f'Adding subtitles to {vf}...')
 
 	if not args.soft_embed:
-		subprocess.call(f'ffmpeg -hide_banner -loglevel warning -i "{vf}" -vf "subtitles=\'{sf}\':force_style=\'Fontsize={args.size},PrimaryColour=&H{args.color}&,BorderStyle={args.border_style}{args.additional_formatting}\'" -c:v libx265 -x265-params log-level=error:crf={args.compression} -c:a copy "{of}"', cwd = os.getcwd(), shell = True)
+		subprocess.call(f'ffmpeg -hide_banner -loglevel warning -i "{vf}" -vf "subtitles=\'{sf}\':force_style=\'Fontsize={args.size},PrimaryColour=&H{args.color}&,BorderStyle={args.border_style}{args.additional_formatting}\'" -c:v {codec_string} -c:a copy "{of}"', cwd = os.getcwd(), shell = True)
 	else:
-		subprocess.call(f'ffmpeg -hide_banner -loglevel warning -i "{vf}" -i "{sf}" -c:v libx265 -x265-params log-level=error:crf={args.compression} -c:a copy -c:s mov_text -disposition:s:0 default "{of}"', cwd = os.getcwd(), shell = True)
+		subprocess.call(f'ffmpeg -hide_banner -loglevel warning -i "{vf}" -i "{sf}" -c:v {codec_string} -c:a copy -c:s mov_text -disposition:s:0 default "{of}"', cwd = os.getcwd(), shell = True)
 
 print('Done!')
